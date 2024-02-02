@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Detail</title>
+</head>
+<body>
+    <h1>{{ student.name }}</h1>
+    <p>ID: {{ student.ID }}</p>
+    <p>Grade: {{ student.grade }}</p>
+    {% if student.photo %}
+    <img src="{{ student.photo.url }}" alt="{{ student.name }} photo">
+    {% endif %}
+    <p>Certificate: {% if student.certificate %}Yes{% else %}No{% endif %}</p>
+    <a href="{% url 'student_edit' student.pk %}">Edit</a>
+    <a href="{% url 'student_delete' student.pk %}">Delete</a>
+</body>
+</html>
