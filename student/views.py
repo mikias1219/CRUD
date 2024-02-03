@@ -4,11 +4,11 @@ from .forms import StudentForm
 
 def student_list(request):
     students = Student.objects.all()
-    return render(request, 'myapp/student_list.html', {'students': students})
+    return render(request, 'student/student_list.html', {'students': students})
 
 def student_detail(request, pk):
     student = get_object_or_404(Student, pk=pk)
-    return render(request, 'myapp/student_detail.html', {'student': student})
+    return render(request, 'student/student_detail.html', {'student': student})
 
 def student_new(request):
     if request.method == "POST":
@@ -19,7 +19,7 @@ def student_new(request):
             return redirect('student_detail', pk=student.pk)
     else:
         form = StudentForm()
-    return render(request, 'myapp/student_edit.html', {'form': form})
+    return render(request, 'student/student_edit.html', {'form': form})
 
 def student_edit(request, pk):
     student = get_object_or_404(Student, pk=pk)
@@ -31,7 +31,7 @@ def student_edit(request, pk):
             return redirect('student_detail', pk=student.pk)
     else:
         form = StudentForm(instance=student)
-    return render(request, 'myapp/student_edit.html', {'form': form})
+    return render(request, 'student/student_edit.html', {'form': form})
 
 def student_delete(request, pk):
     student = get_object_or_404(Student, pk=pk)
