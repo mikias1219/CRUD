@@ -37,3 +37,7 @@ def student_delete(request, pk):
     student = get_object_or_404(Student, pk=pk)
     student.delete()
     return redirect('student_list')
+
+
+def home(request):
+    return render(request, 'student/home.html')
