@@ -8,3 +8,4 @@ urlpatterns = [
     path('student/<int:pk>/edit/', views.student_edit, name='student_edit'),
     path('student/<int:pk>/delete/', views.student_delete, name='student_delete'),
 ]
+## <int:pk>  means the id given in database 
